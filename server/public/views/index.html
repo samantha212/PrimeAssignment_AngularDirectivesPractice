@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="directiveApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Directives</title>
+    <link href="/vendors/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+    <script src="/vendors/angular/angular.min.js"></script>
+    <script src="/assets/scripts/client.js"></script>
+</head>
+<body ng-controller="MainController">
+    <h1>Hello</h1>
+
+    <h2>ng-readonly</h2>
+    Accept Terms & Conditions: <input type="checkbox" ng-model="checked">
+    <input type="text" ng-readonly="!checked" value="Just try to type!">
+
+    <h2>ng-selected</h2>
+    <input type="text" ng-model="name">
+    <select>
+        <option>Select a name</option>
+        <option ng-selected="isNameJoe()">Joe</option>
+        <option ng-selected="isNameSam()">Sam</option>
+    </select>
+
+    <h2>ng-non-bindable</h2>
+    <p>{{WELOVECURLYBRACKETS}}</p>
+    <p ng-non-bindable>{{WELOVECURLYBRACKETS}}</p>
+
+    <h2>ng-style, ng-mouseenter, & ng-repeat</h2>
+    <ul>
+        <li ng-repeat="option in options" ng-mouseenter="myStyle['background-color'] = option">{{option}}</li>
+    </ul>
+    <div ng-style="myStyle"></div>
+
+    <h2>ng-mousedown & ng-if</h2>
+    <div ng-style="myStyle" ng-mousedown="down = true" ng-mouseup="down = false">
+        <p ng-if="down">You're clicking me!</p>
+    </div>
+</body>
+</html>
